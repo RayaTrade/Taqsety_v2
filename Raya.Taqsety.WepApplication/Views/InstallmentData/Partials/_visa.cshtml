@@ -1,0 +1,93 @@
+﻿
+    <div class="credit-card-box">
+        <div class=" d-flex lock justify-content-center">
+            <span class="material-symbols-outlined position-absolute">
+             lock
+            </span>
+
+        </div>
+        <div class="cardOverlay d-flex jusitfy-content-center align-items-center">
+        </div>
+        <div class="flip">
+            <div class="front">
+                <div class="chip"></div>
+            <div class="logo" style="margin-right:60px;">
+                <img  src="~/images/logo.png" style="width:30vw" />
+                </div>
+                <div class="number" id="visaId" >5410 1000 0000 0000</div>
+                <div class="card-holder">
+                    <label>Card holder</label>
+                    <div id="customerName"></div>
+                </div>
+            <div class="card-expiration-date text-dark">
+                <label>Credit Limit</label>
+                <div id="creditLimit">500,00 L.E</div>
+            </div>
+        </div>
+            <div class="back">
+                <div class="strip"></div>
+
+            <div class="card-expiration-date text-dark">
+                <label>Expires</label>
+                <div id="expiryDate">05/25</div>
+            </div>
+          
+            <div class="card-holder text-dark">
+                <label>Monthly Credit Limit</label>
+                <div id="monthlyCreditLimit">3,500 L.E</div>
+                </div>
+          
+            </div>
+        </div>
+    </div>
+
+<script>
+  
+
+    $('.input-cart-number').on('keyup change', function () {
+        $t = $(this);
+
+        if ($t.val().length > 3) {
+            $t.next().focus();
+        }
+
+        var card_number = '';
+        $('.input-cart-number').each(function () {
+            card_number += $(this).val() + ' ';
+            if ($(this).val().length == 4) {
+                $(this).next().focus();
+            }
+        })
+
+        $('.credit-card-box .number').html(card_number);
+    });
+
+    $('#card-holder').on('keyup change', function () {
+        $t = $(this);
+        $('.credit-card-box .card-holder div').html($t.val());
+    });
+
+    $('#card-holder').on('keyup change', function () {
+        $t = $(this);
+        $('.credit-card-box .card-holder div').html($t.val());
+    });
+
+    $('#card-expiration-month, #card-expiration-year').change(function () {
+        m = $('#card-expiration-month option').index($('#card-expiration-month option:selected'));
+        m = (m < 10) ? '0' + m : m;
+        y = $('#card-expiration-year').val().substr(2, 2);
+        $('.card-expiration-date div').html(m + '/' + y);
+    })
+
+    $('#card-ccv').on('focus', function () {
+        $('.credit-card-box').addClass('hover');
+    }).on('blur', function () {
+        $('.credit-card-box').removeClass('hover');
+    }).on('keyup change', function () {
+        $('.ccv div').html($(this).val());
+    });
+
+
+  
+
+</script>

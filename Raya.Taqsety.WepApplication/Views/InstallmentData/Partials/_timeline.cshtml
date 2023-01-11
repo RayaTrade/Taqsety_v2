@@ -1,0 +1,108 @@
+﻿
+<div class="history-tl-container w-100">
+  <ul class="tl w-100">
+        <li class="tl-item p-0 px-4" ng-repeat="item in retailer_history ">
+            <div class="d-flex justify-content-between align-items-center ">
+                <div class="d-flex flex-column">
+                    <div class="item-title">National Id</div>
+                    <div class="item-detail" id="nationalId"></div>
+                </div>
+              @*  <span class="material-symbols-outlined">
+                    arrow_forward_ios
+                </span>*@
+            </div>
+        </li>
+        <li class="tl-item p-0 px-4" ng-repeat="item in retailer_history">
+        <div class="d-flex justify-content-between align-items-center" >
+                <div class="d-flex flex-column">
+      <div class="item-title">full name</div>
+      <div class="item-detail" id="name"></div>
+        </div>
+                <span class="material-symbols-outlined" onclick="redirectAndFillData('CustomerNameContainer')">
+                    arrow_forward_ios
+                </span>
+        </div>
+    </li>
+        <li class="tl-item p-0 px-4" ng-repeat="item in retailer_history">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column">
+                    <div class="item-title">Marital status</div>
+                    <div class="item-detail" id="maritalStatus"></div>
+                </div>
+                <span class="material-symbols-outlined" onclick="redirectAndFillData('CustomerMaritialStatusContainer')">
+                    arrow_forward_ios
+                </span>
+            </div>
+        </li>
+        <li class="tl-item p-0 px-4" ng-repeat="item in retailer_history">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column">
+                    <div class="item-title">Address & property type</div>
+                    <div class="item-detail" >
+                        <span id="nearestLandMark"></span>
+                        <span id="CustomerAddressDetails"></span>
+                        <span id="CutomerCity"></span>
+                        <span id="CutomerGovernrate"></span>
+                        <span id="customerPrpertyType"></span>
+                        </div>
+                </div>
+                <span class="material-symbols-outlined" onclick="redirectAndFillData('CustomerAddressContainer')">
+                    arrow_forward_ios  
+                </span>
+            </div>
+        </li>
+        <li class="tl-item p-0 px-4" ng-repeat="item in retailer_history">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column">
+                    <div class="item-title">Job details</div>
+                    <div class="item-detail" >
+                        <span id ="JobTitle"></span>
+                        <span id ="isPrivateSector"></span>
+                        <span id ="jobDetails"></span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined" onclick="redirectAndFillData('CustomerJobDetailsContainer')">
+                    arrow_forward_ios
+                </span>
+            </div>
+        </li>
+        <li class="tl-item p-0 px-4" ng-repeat="item in retailer_history">
+            
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column">
+                    <div class="item-title">Monthly income</div>
+                    <div class="item-detail" id="salary"></div>
+                </div>
+                <span class="material-symbols-outlined"onclick="redirectAndFillData('CustomerMonthlyIncomeContainer')">
+                    arrow_forward_ios
+                </span>
+            </div>
+        </li>
+        <li class="tl-item p-0 px-4" ng-repeat="item in retailer_history">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column">
+                    <div class="item-title">Sports club membership</div>
+                    <div class="item-detail"id="ClubsNames"></div>
+                </div>
+                <span class="material-symbols-outlined"onclick="redirectAndFillData('CustomerClubsContainer')">
+                    arrow_forward_ios
+                </span>
+            </div>
+        </li>
+        <li class="tl-item p-0 px-4" ng-repeat="item in retailer_history">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column">
+                    <div class="item-title">Provide on delivery</div>
+                    <div class="item-detail" id="toProvideOnDelivery"></div>
+                </div>
+                <span class="material-symbols-outlined"onclick="redirectAndFillData('CustomerProvideOnDeliveryContainer')">
+                    arrow_forward_ios
+                </span>
+            </div>
+        </li>
+  </ul>
+
+</div>
+<script>
+   
+</script>

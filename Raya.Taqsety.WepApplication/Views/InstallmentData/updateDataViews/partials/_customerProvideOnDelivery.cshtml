@@ -1,0 +1,153 @@
+﻿
+<div>
+    <span class="material-symbols-outlined"
+          onclick="redirectToSummary()">
+        arrow_back
+    </span>
+</div>
+
+<div class="row mt-3 align-items-center justify-content-center">
+
+    <div class="col-md-6">
+
+        <div class="row py-2 justify-content-center">
+            <div class="col-md-6">
+                <p class=" fw-bolder text-center">
+                    <span class="fs-3">📄</span>
+                    <br />
+                    <span class="fw-bolder">
+                        Required documents
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <form id="documentsFrom">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="idFrontDiv">
+                        <div class="row py-2 justify-content-center">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="uploadFileArea idFront">
+                                        <p class="m-0">📄 Photo of ID (front)</p>
+                                        <input type="file" required class="form-control" name="idFront" id="idFront" />
+                                    </div>
+                                    <div class="uploadIcon idFrontIcon">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="idBackDiv">
+                        <div class="row py-2 justify-content-center">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="uploadFileArea idBack">
+                                        <p class="m-0">📄 Photo of ID (back)</p>
+                                        <input type="file" required class="form-control" name="idBack" id="idBack" />
+                                    </div>
+                                    <div class="uploadIcon idBackIcon">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-12">
+
+                    <input type="checkbox" id="IDFronBack" class="dx-checkbox mx-2" />
+                    Provide to delivery representative
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row py-2 justify-content-center">
+                        <div class="col-md-12">
+
+                            <input type="checkbox" id="haveMedicalInsurenceCB" />
+                            <label>I have medical insurence</label>
+                        </div>
+                    </div>
+                    <div id="healthCareDiv">
+                        <div class="row py-2 justify-content-center">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="uploadFileArea healthCareID">
+                                        <p class="m-0">📄 Medical Insurence ID</p>
+                                        <input type="file" required class="form-control" id="healthCareID" />
+                                    </div>
+                                    <div class="uploadIcon healthCareIDIcon">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row py-2 justify-content-center">
+                            <div class="col-md-12">
+
+                                <input type="checkbox" id="cbHealtCare" class="dx-checkbox mx-2" />
+                                Provide to delivery representative
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="row py-2 justify-content-center">
+                        <div class="col-md-12">
+                            <input type="checkbox" id="haveACar" />
+                            <label>I have a car</label>
+
+                        </div>
+                    </div>
+                    <div id="carlicenseDiv">
+                        <div class="row py-2 justify-content-center">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="uploadFileArea carLisenceId">
+                                        <p class="m-0">📄 Car Lisence ID</p>
+                                        <input type="file" required class="form-control" id="carLisence" name="carLisence" />
+                                    </div>
+                                    <div class="uploadIcon carLisenceIdIcon">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row py-2 justify-content-center">
+                            <div class="col-md-12">
+
+                                <input type="checkbox" id="cbCarID" class="dx-checkbox mx-2" />
+                                Provide to delivery representative
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- self employed -->
+            <div id="selfEmployed">
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+<div class="row my-5 justify-content-center">
+    <button class="btn w-25 btn-primary" id="jobDetailsUpdateBtn"> Update </button>
+</div>

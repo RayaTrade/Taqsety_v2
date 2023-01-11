@@ -1,0 +1,369 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.API\\Raya.Taqsety.API.csproj": {}
+  },
+  "projects": {
+    "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.API\\Raya.Taqsety.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.API\\Raya.Taqsety.API.csproj",
+        "projectName": "Raya.Taqsety.API",
+        "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.API\\Raya.Taqsety.API.csproj",
+        "packagesPath": "C:\\Users\\abdelrahman_shawki\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.API\\obj\\publish\\win-x64\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abdelrahman_shawki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Infrastructure\\Raya.Taqsety.Infrastructure.csproj": {
+                "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Infrastructure\\Raya.Taqsety.Infrastructure.csproj"
+              },
+              "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Service\\Raya.Taqsety.Service.csproj": {
+                "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Service\\Raya.Taqsety.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[7.0.0, 7.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[7.0.0, 7.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[7.0.0, 7.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Core\\Raya.Taqsety.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Core\\Raya.Taqsety.Core.csproj",
+        "projectName": "Raya.Taqsety.Core",
+        "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Core\\Raya.Taqsety.Core.csproj",
+        "packagesPath": "C:\\Users\\abdelrahman_shawki\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abdelrahman_shawki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Infrastructure\\Raya.Taqsety.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Infrastructure\\Raya.Taqsety.Infrastructure.csproj",
+        "projectName": "Raya.Taqsety.Infrastructure",
+        "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Infrastructure\\Raya.Taqsety.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\abdelrahman_shawki\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abdelrahman_shawki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Core\\Raya.Taqsety.Core.csproj": {
+                "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Core\\Raya.Taqsety.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Service\\Raya.Taqsety.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Service\\Raya.Taqsety.Service.csproj",
+        "projectName": "Raya.Taqsety.Service",
+        "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Service\\Raya.Taqsety.Service.csproj",
+        "packagesPath": "C:\\Users\\abdelrahman_shawki\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abdelrahman_shawki\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Core\\Raya.Taqsety.Core.csproj": {
+                "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Core\\Raya.Taqsety.Core.csproj"
+              },
+              "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Infrastructure\\Raya.Taqsety.Infrastructure.csproj": {
+                "projectPath": "D:\\GitHubSourceControl\\newTaqsety\\Taqsety\\Raya.Taqsety.Infrastructure\\Raya.Taqsety.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.AspNetCore.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+﻿
+
+@{
+    Layout = "_layout";
+}
+<section>
+
+    <div id="CustomerNameContainer" style="display:none">
+        <partial name="updatedataviews\partials\_customername" />
+    </div>
+    <div id="CustomerMaritialStatusContainer" style="display:none">
+        <partial name="updatedataviews\partials\_maritialStatus">
+    </div>
+    <div id="CustomerAddressContainer" style="display:none">
+        <partial name="updatedataviews\partials\_customerAddress">
+    </div>
+
+    <div id="CustomerJobDetailsContainer" style="display:none">
+        <partial name="updatedataviews\partials\_customerJobDetails">
+    </div>
+
+    <div id="CustomerMonthlyIncomeContainer" style="display:none">
+        <partial name="updatedataviews\partials\_customerMonthlyIncome">
+    </div>
+
+    <div id="CustomerClubsContainer" style="display:none">
+        <partial name="updatedataviews\partials\_customerClubs">
+    </div>
+    <div id="CustomerProvideOnDeliveryContainer" style="display:none">
+        <partial name="updatedataviews\partials\_customerProvideOnDelivery">
+    </div>
+    <div id="guarntorRelationContainer" style="display:none">
+        <partial name="updatedataviews\partials\_guarntorRelation">
+    </div>
+    <div id="guarntorPersonalInfoContainer" style="display:none">
+        <partial name="updatedataviews\partials\_guarntorPersonalInfo">
+    </div>
+    <div id="guarntorAddressContainer" style="display:none">
+        <partial name="updatedataviews\partials\_guarntorAddress">
+    </div>
+
+</section>
+<script>
+
+    $(function () {
+        if (sessionStorage.getItem("installmentCard")) {
+            installmentCard = JSON.parse(sessionStorage.getItem("installmentCard"))
+        }
+        var divToShow = window.location.href.split("#")[1];
+        $("#" + divToShow).show(300)
+        validateCustomerName()
+    })
+
+</script>

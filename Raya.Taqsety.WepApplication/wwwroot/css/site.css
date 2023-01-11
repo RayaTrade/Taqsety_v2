@@ -1,0 +1,291 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+
+/*visa styling*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+#customerName {
+    overflow: hidden ;
+    width: 200px ;
+    white-space: nowrap ;
+}
+/*--------------------
+Checkout
+--------------------*/
+.checkout {
+    margin: 150px auto 30px;
+    position: relative;
+    width: 460px;
+    background: none;
+    border-radius: 15px;
+    padding: 160px 45px 30px;
+}
+
+/*--------------------
+Credit Card
+--------------------*/
+.credit-card-box {
+    /*-webkit-perspective: 1000;*/
+    /*perspective: 1000;*/
+    width: 30vw;
+    height: 17vw;
+    position: relative;
+    top: 112px;
+    left: 20%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+    .credit-card-box:hover .flip, .credit-card-box.hover .flip {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    .credit-card-box .front,
+    .credit-card-box .back {
+        width: 30vw;
+        height: 17vw;
+        border-radius: 15px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        background: linear-gradient(135deg, #145369 10%, #fff 100%);
+        position: absolute;
+        color: #fff;
+        font-family: Inconsolata;
+        top: 0;
+        left: 0;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    }
+
+        .credit-card-box .front::before,
+        .credit-card-box .back::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            /*background: url("https://thepennyinc.com/assets/pinc_bk.svg") no-repeat center;*/
+            background-size: cover;
+            opacity: .05;
+        }
+
+    .credit-card-box .flip {
+        transition: 0.6s;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+
+    .credit-card-box .logo {
+        position: absolute;
+        top: -;
+        right: 2vw;
+        width: 5vw;
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+    }
+
+        .credit-card-box .logo svg {
+            width: 100%;
+            height: auto;
+            fill: #fff;
+        }
+
+    .credit-card-box .front {
+        z-index: 2;
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    .credit-card-box .back {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+       /* .credit-card-box .back .logo {
+            top: 130px;
+        }*/
+
+    .credit-card-box .chip {
+        position: absolute;
+        width: 5vw;
+        height: 4vw;
+        top: 2vw;
+        left: 2vw;
+        background: linear-gradient(135deg, #ddccf0 0%, #d1e9f5 44%, #f8ece7 100%);
+        border-radius: 8px;
+    }
+
+        .credit-card-box .chip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border: 4px solid rgba(128, 128, 128, 0.1);
+            width: 80%;
+            height: 70%;
+            border-radius: 5px;
+        }
+
+    .credit-card-box .strip {
+        background: linear-gradient(135deg, #404040, #1a1a1a);
+        position: absolute;
+        width: 100%;
+        height: 3vw;
+        top: 2vw;
+        left: 0;
+    }
+
+    .credit-card-box .number {
+        position: absolute;
+        margin: 0 auto;
+        top: 7vw;
+        left: 1vw;
+        font-size: 3vw;
+    }
+
+    .credit-card-box label {
+        font-size: 0.7vw;
+        letter-spacing: 1px;
+        text-shadow: none;
+        text-transform: uppercase;
+        font-weight: normal;
+        opacity: 0.5;
+        display: block;
+        margin-bottom: 1vw;
+    }
+
+    .credit-card-box .card-holder,
+    .credit-card-box .card-expiration-date {
+        position: absolute;
+        margin: 0 auto;
+        top: 12vw;
+        left: 1vw;
+        font-size: 1.5vw;
+        text-transform: capitalize;
+    }
+
+    .credit-card-box .card-expiration-date {
+        text-align: right;
+        left: auto;
+        right: 1vw;
+    }
+
+.cardOverlay {
+    position :absolute;
+    top :0;
+    bottom:0;
+    right :0;
+    left:0;
+    background-color :black;
+    opacity :0.7;
+    z-index:999;
+    border-radius:15px;
+}
+.lock {
+    position: absolute;
+    color:white;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .lock span {
+        font-size: 75px;
+    }
+
+    .history-tl-container ul.tl {
+        margin: 20px 0;
+        padding: 0;
+        display: inline-block;
+        /*transition: all 500ms ease-in-out;*/
+        width: 85vw;
+    }
+  
+
+        .history-tl-container ul.tl li {
+            list-style: none;
+            margin: auto;
+            margin-left: 50px;
+            min-height: 50px;
+            /*background: rgba(220,220,220);*/
+            border-left: 1px dashed #86D6FF;
+            padding: 0 0 20px 30px;
+            position: relative;
+        }
+.material-symbols-outlined:hover{
+    cursor:pointer;
+}
+
+
+.history-tl-container ul.tl li:last-child {
+    border-left: 0;
+}
+
+            .history-tl-container ul.tl li::before {
+                position: absolute;
+                left: -11px;
+                top: -5px;
+                content: " ";
+                border: 8px solid rgba(255, 255, 255, 0.74);
+                border-radius: 500%;
+                background: #258CC7;
+                height: 20px;
+                width: 20px;
+                transition: all 500ms ease-in-out;
+            }
+
+            .history-tl-container ul.tl li:hover::before {
+                border-color: #258CC7;
+                transition: all 1000ms ease-in-out;
+            }
+
+
+ul.tl li .item-detail {
+    color: rgba(0,0,0,0.5);
+    font-size: 12px;
+}
+
+ul.tl li .timestamp {
+    color: #8D8D8D;
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    text-align: right;
+    font-size: 12px;
+}
+/*timeline styling*/

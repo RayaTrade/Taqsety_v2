@@ -1,0 +1,122 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+<div>
+    <span class="material-symbols-outlined"
+          onclick="redirectToSummary()">
+        arrow_back
+    </span>
+</div>
+<div class="row py-2 justify-content-center">
+    <div class="col-md-6">
+
+        <div class="row py-2 justify-content-center">
+            <div class="col-md-6">
+                <p class="text-center">
+                    How is the guarantor related to you?
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="row py-2 justify-content-center">
+            <div class="col">
+                <div class="_selection relationTypeId_Selection p-3 my-2">
+
+                    <label class="selection_radio">
+                        <input type="radio" name="relationTypeId" value="1" />
+                        Wife
+                    </label>
+
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="_selection relationTypeId_Selection p-3 my-2">
+
+                    <label class="selection_radio">
+                        <input type="radio" name="relationTypeId" value="2" />
+                        Husband
+                    </label>
+
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="_selection relationTypeId_Selection p-3 my-2">
+
+                    <label class="selection_radio">
+                        <input type="radio" name="relationTypeId" value="3" />
+                        Father/Mother
+                    </label>
+
+                </div>
+
+            </div>
+            <div class="col">
+
+                <div class="_selection relationTypeId_Selection p-3 my-2">
+
+                    <label class="selection_radio">
+                        <input type="radio" name="relationTypeId" value="4" />
+                        Sister/Brother
+                    </label>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="_selection relationTypeId_Selection p-3 my-2">
+
+                    <label class="selection_radio">
+                        <input type="radio" name="relationTypeId" value="5" />
+                        Other
+                    </label>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row py-2 justify-content-center">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary w-100" onclick="updateGuarantorRelartion()"> Update </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        setTimeout(function () {
+            if (installmentCard) {
+                $("[value=" + installmentCard.grantorRelationId.id + "]").click();
+            }
+        },300)
+       
+    })
+
+    async function updateGuarantorRelartion() {
+        guarntoToUpdate = {
+            "id": installmentCard.grantorId,
+            "relationId": parseInt($('input[name=relationTypeId]:checked').val()),
+            "name": installmentCard.grantorName,
+            "nationalId": installmentCard.grantorNationalId,
+            "mobileNumber": installmentCard.grantorMobileNumber,
+            "addressDetailsId": installmentCard.grantorAddressDetailsId,
+            "governrateId": installmentCard.grantorGovernrateId.id,
+            "cityId": installmentCard.grantorCityId.id,
+            "addressDetails": installmentCard.grantorAddressDetails,
+            "nearestLandMark": "string"
+        }
+        var res = await fetchPut("Customer/UpdateGuarntorData", guarntoToUpdate)
+        if (res.succeded) {
+            var mobileNumber = localStorage.getItem("mobileNumber") //updating session data 
+            if (!!mobileNumber) {
+                var installmentCardResult = await fetchGet("InstallmentCard/GetInstallmentCardByMobileNumber?mobileNumber=" + mobileNumber + "&lang=en")
+                if (installmentCardResult.succeded) {
+                    sessionStorage.setItem("installmentCard", JSON.stringify(res.content))
+                    window.location.replace(fronApplicationPath + "/installmentData/Summary")
+                }
+            }
+        }
+    }
+</script>

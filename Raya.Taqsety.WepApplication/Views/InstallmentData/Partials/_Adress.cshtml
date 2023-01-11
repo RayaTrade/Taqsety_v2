@@ -1,0 +1,159 @@
+﻿
+<div class="row mt-3 align-items-center">
+    <div class="d-none d-md-flex col-12 col-md-6">
+        <div>
+
+            <img src="~/Images/undraw_delivery_address_re_cjca.svg" class="img-fluid" />
+        </div>
+        <div class="h-breakLine"></div>
+    </div>
+    <div class="col-md-6">
+
+        <form id="addressForm">
+    <div class="row py-2 justify-content-center">
+        <div class="col-md-6">
+            <p class="m-0 fw-bolder text-center">
+                <span class="fs-3">🏠</span>
+                <br />
+                <span class="fw-bolder">
+                    Where do you currently live?
+
+                </span>
+            </p>
+
+        </div>
+    </div>
+    <div class="row py-2 justify-content-center">
+        <div class="col-md-6">
+            <label>Governerate</label>
+            <select name="GovernerateId" required id="governerate" class=" w-100">
+                
+            </select>
+
+        </div>
+        <div class="col-md-6">
+            <label>City</label>
+
+            <select name="CityId" required id="city" class="form-control w-100">            
+            </select>
+
+        </div>
+    </div>
+   
+    <div class="row py-2 justify-content-center">
+        <div class="col-md-6">
+            <div class="form__group m-0 ">
+                <input type="text" name="Details" id="customeraddressDetails" required class="form__field" placeholder="Your Email">
+                <label for="Details" class="form__label inputPlaceHolder">Address Details</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form__group m-0 ">
+                <input type="text" name="customerAddressNearestLandmark" required id="customerAddressNearestLandmark" class="form__field" placeholder="Your Email">
+                <label for="customerAddressNearestLandmark" class="form__label inputPlaceHolder">Nearest land mark</label>
+            </div>
+        </div>
+    </div>
+  
+    
+
+    <div class=" py-2">
+        <div class="">
+            <p class="fw-bolder">property Type:</p>
+            <div class="row">
+                <div class="col">
+                    <div class="_selection propertyType_Selection p-3 my-2">
+
+                <label class="selection_radio">
+                    <input type="radio" name="customerBuildingType" value="1" />
+                    I'm the owner
+                </label>
+
+            </div>
+
+                </div>
+                <div class="col">
+                    <div class="_selection propertyType_Selection p-3 my-2">
+
+                <label class="selection_radio">
+                    <input type="radio" name="customerBuildingType" value="2" />
+                    New Rent
+                </label>
+
+            </div>
+
+                </div>
+                <div class="col">
+                    <div class="_selection propertyType_Selection p-3 my-2">
+
+                <label class="selection_radio">
+                    <input type="radio" name="customerBuildingType" value="3" />
+                    Old Rent
+                </label>
+
+            </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="row py-2 justify-content-center">
+        <div class="col-md-12">
+            <div class="form__group m-0 ">
+                <input type="number" name="yearsOfResidance" required id="yearsOfResidance" class="form__field" placeholder="Years of Residance">
+                <label for="yearsOfResidance" class="form__label inputPlaceHolder">Years of Residance</label>
+            </div>
+        </div>
+    </div>
+    <div class="row py-2 justify-content-center">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary w-100" @* disabled="disabled"*@ id="addressBtn"> Continue </button>
+        </div>
+    </div>
+
+</form>
+    </div>
+</div>
+<script>
+
+    $(function () {
+        getAllGovernerate("en", "#governerate");
+       
+        // marital selection
+        let radioButtons = $(".propertyType_Selection");
+        $(radioButtons[0]).children().children().attr('checked', "checked");
+        $(radioButtons[0]).css("border", "1px solid #0840b8");
+        $(".propertyType_Selection").click(function () {
+
+            $(this).css("border", "1px solid #0840b8");
+            $(this).children().children().prop('checked', true);
+
+            let radioSibilings = $(this).siblings();
+
+            for (let index = 0; index < radioSibilings.length; index++) {
+                $(radioSibilings[index]).css("border", "1px solid #e3e5e8");
+            }
+        });
+        $("#governerate").change(function () {
+
+            getAllCitiesByGovernerateId($(this).val(), "en", "#city");
+        })
+    })
+    $("#addressForm").validate({
+        errorClass: "validationError"
+    });
+    $("#addressBtn").click(function () {
+        if ($("#addressForm").valid()) {
+
+            $("#_Adress").slideUp(500, function () {
+                $("#_jopSector").slideDown(500);
+            });
+        }
+
+    });
+
+
+</script>

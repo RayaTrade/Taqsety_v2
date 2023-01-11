@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+<div>
+    <span class="material-symbols-outlined"
+          onclick="redirectToSummary()">
+        arrow_back
+    </span>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="row pt-2 justify-content-center">
+            <div class="col-md-6">
+
+                <div class="form__group m-0 ">
+                    <input type="text" name="grantorNationalId" required pattern="^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$" id="grantorNationalId" class="form__field" placeholder="Guarantor's national id">
+                    <label for="grantorNationalId" class="form__label inputPlaceHolder">Guarantor's national id</label>
+                    <span id="sameNationalIdAsCustomerMsg" class="text-danger" style="display:none;">@localizer["customer and Guranter NationalIds could not be the same"]</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="form__group m-0 ">
+                    <input type="text" name="grantorMobileNumber" id="grantorMobileNumber" required pattern="^01[0125][0-9]{8}$" value="" class="form__field" placeholder="Guarantor's mobile number">
+                    <label for="grantorMobileNumber" class="form__label inputPlaceHolder">Guarantor's mobile number</label>
+                    <span class="text-danger" id="sameMobileNumberAsCustomerMsg" style="display:none;">@localizer["mobileNumber Can Not Be the same as customer"]</span>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-2 justify-content-center">
+            <div class="col-md-12">
+
+                <div class="form__group m-0 ">
+                    <input type="text" id="grantorName" name="grantorName" required class="form__field" placeholder="Guarantor's full name">
+                    <label for="grantorName" class="form__label inputPlaceHolder">Guarantor's full name</label>
+                </div>
+                <div class="d-flex mt-2 justify-content-evenly">
+                    <div class="nameBar nameBarGuarantor"></div>
+                    <div class="nameBar nameBarGuarantor"></div>
+                    <div class="nameBar nameBarGuarantor"></div>
+                    <div class="nameBar nameBarGuarantor"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-2 justify-content-center">
+            <button class="btn btn-primary" onclick="updateGuarntorInfo()">Update</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        setTimeout(function () {
+            if (installmentCard) {
+                $("#grantorNationalId").val(installmentCard.grantorNationalId)
+                $("#grantorMobileNumber").val(installmentCard.grantorMobileNumber)
+                $("#grantorName").val(installmentCard.grantorName)
+                $("#grantorName").click()
+            }
+        }, 400)
+    })
+    async function updateGuarntorInfo(){
+        guarntoToUpdate = {
+            "id": installmentCard.grantorId,
+            "relationId": installmentCard.grantorRelationId.id,
+            "name": $("#grantorName").val(),
+            "nationalId": $("#grantorNationalId").val(),
+            "mobileNumber": $("#grantorMobileNumber").val(),
+            "addressDetailsId": installmentCard.grantorAddressDetailsId,
+            "governrateId": installmentCard.grantorGovernrateId.id,
+            "cityId": installmentCard.grantorCityId.id,
+            "addressDetails": installmentCard.grantorAddressDetails,
+            "nearestLandMark": "string"
+        }
+        var res = await fetchPut("Customer/UpdateGuarntorData", guarntoToUpdate)
+        if (res.succeded) {
+            var mobileNumber = localStorage.getItem("mobileNumber") //updating session data 
+            if (!!mobileNumber) {
+                var installmentCardResult = await fetchGet("InstallmentCard/GetInstallmentCardByMobileNumber?mobileNumber=" + mobileNumber + "&lang=en")
+                if (installmentCardResult.succeded) {
+                    sessionStorage.setItem("installmentCard", JSON.stringify(res.content))
+                    window.location.replace(fronApplicationPath + "/installmentData/Summary")
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Raya.Taqsety.Infrastructure": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:1076;http://localhost:1080"
+    }
+  }
+}

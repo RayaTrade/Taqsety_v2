@@ -1,0 +1,423 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+<div>
+    <partial name="_selectLanguage" />
+</div>
+<div class="row mt-3 align-items-center">
+    <div class=" d-none d-md-flex col-12 col-md-6">
+        <div>
+
+        <img src="~/Images/undraw_credit_card_payments_re_qboh.svg" class="img-fluid" />
+        </div>
+        <div class="h-breakLine"></div>
+    </div>
+    <div class="col-md-6">
+        <div class="text-center">
+            <p class="fw-bold m-0 fs-4">@localizer["Eligibility check"]</p>
+            <p class=" subtext">@localizer["Please provide the following required information"]</p>
+        </div>
+        <form id="eligibiltyCheckForm">
+
+
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-6">
+                    <span class="fw-bolder">💳 @localizer["NationalId"]</span>
+                    <div class="form__group m-0 ">
+                        <input type="text" name="customerNationalId" id="customerNationalId" autocomplete="off" required class="form__field" placeholder="@localizer["Your 14-digit national ID"]">
+                        <label for="customerNationalId" class="form__label inputPlaceHolder">@localizer["Your 14-digit national ID"]</label>
+                        <span id="invalidIdMsg" class="text-danger" style="display:none">@localizer["Invalid National Id"]</span>
+                        <span id="validIdMsg" class="text-success" style="display:none">@localizer["Valid National Id"]</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="fw-bolder">📱 @localizer["Mobile Number"]</span>
+                    <div class="form__group m-0 ">
+                        <input type="tel" id="mobileNumber" name="mobileNumber" class="form__field" pattern="^01[0125][0-9]{8}$" required placeholder="@localizer["Your mobile number"]" autocomplete="off">
+                        <label for="mobileNumber" class="form__label inputPlaceHolder">@localizer["Your mobile number"]</label>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-12">
+                    <span class="fw-bolder">🙂 @localizer["Full Name"]</span>
+                    <div class="form__group m-0 ">
+                        <input type="text" id="customerName" name="customerName" class="form__field" autocomplete="off" required placeholder="@localizer["Your first 4 names"]">
+                        <label for="customerName" class="form__label inputPlaceHolder">@localizer["Your first 4 names"]</label>
+                    </div>
+                    <div class="d-flex mt-2 justify-content-evenly">
+                        <div class="nameBar"></div>
+                        <div class="nameBar"></div>
+                        <div class="nameBar"></div>
+                        <div class="nameBar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-12 ">
+                    <span class="fw-bolder">
+                        👔 @localizer["Occupation"]
+                    </span>
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="_selection p-3 my-2">
+
+                        <label class="selection_radio">
+                            <input type="radio" name="JobTypeId" value="0" autocomplete="off" />
+                            @localizer["Employed"]
+                        </label>
+
+                    </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="_selection p-3 my-2">
+
+                                <label class="selection_radio">
+                                    <input type="radio" name="JobTypeId" value="1" autocomplete="off" />
+                                    @localizer["Self Employed"]
+                                </label>
+
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="_selection p-3 my-2">
+
+                                <label class="selection_radio">
+                                    <input type="radio" name="JobTypeId" value="2" autocomplete="off" />
+                                    @localizer["Retired"]
+                                </label>
+
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="_selection p-3 my-2">
+
+                                <label class="selection_radio">
+                                    <input type="radio" name="JobTypeId" value="3" autocomplete="off" />
+                                    @localizer["Freelancer"]
+                                </label>
+
+                            </div>
+                        </div>
+                        
+                        <div class="col">
+                            <div class="_selection p-3 my-2">
+
+                                <label class="selection_radio">
+                                    <input type="radio" name="JobTypeId" value="4" autocomplete="off" />
+                                    @localizer["Pension beneficiary"]
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary w-100" @* disabled="disabled"*@ id="checkElegabilityBtn">@localizer["Check eligibility now"]  </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+
+    $(function(){
+        validateCustomerName();
+        $("#validIdMsg").hide()
+        $("#invalidIdMsg").hide()
+    })
+    // occupation selection
+    let radioButtons = $("._selection");
+    $(radioButtons[0]).children().children().attr('checked', "checked");
+    $(radioButtons[0]).css("border", "1px solid #0840b8");
+    
+    $("._selection").click(function () {
+
+        $(this).css("border", "1px solid #0840b8");
+        $(this).children().children().prop('checked', true);
+
+        let radioSibilings = $(this).siblings();
+
+        for (let index = 0; index < radioSibilings.length; index++) {
+            $(radioSibilings[index]).css("border", "1px solid #e3e5e8");
+        }
+        //self emplyed documents
+         if ($('input[name=JobTypeId]:checked').val() == 1){
+           
+            $("#selfEmployed").append(`
+                <div id="commercialRecordDiv">
+                <div class="row py-2 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="uploadFileArea commercialRecord">
+                                <p class="m-0">📄 commercial record</p>
+                                    <input type="file" required class="form-control" id="commercialRecord" name="commercialRecord" />
+                            </div>
+                            <div class="uploadIcon commercialRecordIcon">
+                                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row py-2 justify-content-center">
+                    <div class="col-md-4">
+
+                        <input type="checkbox" id="cbCommercialRecord" class="dx-checkbox mx-2" />
+                        Provide to delivery representative
+                    </div>
+                </div>
+            </div>
+                <div id="taxRecordDiv">
+                <div class="row py-2 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="uploadFileArea taxRecord">
+                                <p class="m-0">📄 tax record</p>
+                                    <input type="file" required class="form-control" id="taxRecord" name="taxRecord" />
+                            </div>
+                            <div class="uploadIcon taxRecordIcon">
+                                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row py-2 justify-content-center">
+                    <div class="col-md-4">
+
+                        <input type="checkbox" id="cbTaxRecord" class="dx-checkbox mx-2" />
+                        Provide to delivery representative
+                    </div>
+                </div>
+            </div>
+            
+        
+            `)
+        }
+        else{
+            $("#selfEmployed").empty();
+        }
+
+        //let radioValue = $(this).children().children().val();
+
+        //if (radioValue == "0" || radioValue == "2" || radioValue == "4") {
+        //    $("#universites").fadeOut(300)
+        //    $("#emp").fadeIn(300);
+        //}
+        //else if (radioValue == "1") {
+        //    $("#emp").fadeOut(300)
+        //    $("#universites").fadeIn(300);
+        //}
+        //else {
+
+        //    $("#emp , #universites").fadeOut(300);
+        //}
+            
+
+    })
+
+    //jops selection
+
+    $(".jobs-container div").click(function () {
+        $(this).children(".jobTitle").addClass("activeJob");
+        let jobSibilings = $(this).siblings();
+
+        for (let index = 0; index < jobSibilings.length; index++) {
+            $(jobSibilings[index]).children(".jobTitle").removeClass("activeJob");
+        }
+    });
+
+   
+    $("#customerNationalId , #mobileNumber").keypress(function (e) {
+        if( !validateNumber(e)){
+            e.preventDefault();
+        }
+    })
+
+
+  
+
+    $("#customerNationalId").focusout(function (e) {
+        
+        var englishAlphabetAndWhiteSpace = /[A-Za-z ]/g;
+        var key = String.fromCharCode(e.which);
+        if (englishAlphabetAndWhiteSpace.test(key)) {
+            return true;
+        }
+        if ($("#customerNationalId").val() == '') {
+            $("#validIdMsg").hide(300)
+            $("#invalidIdMsg").hide(300)
+        }
+        checkIfValidNationalId($(this).val())
+        
+    });
+    $("#customerName").focusout(function (e) {
+       
+        checkIfBlockedCustomer($(this).val())
+        
+    });
+   
+</script>
+
+<script>
+    $("#eligibiltyCheckForm").validate({
+        messages:{
+           
+            mobileNumber:{
+                 pattern: "Please enter valid Mobile Number"
+
+            }
+        },
+        errorClass: "validationError"
+    });
+
+    $("#checkElegabilityBtn").click(function () {
+
+        if ($("#eligibiltyCheckForm").valid()) {
+            $("#eligibilityCheck").slideUp(500, function () {
+                            $("#smsCode").slideDown(500);
+            });
+            $("#mobileNumberToDisplay").text($("#mobileNumber").val());
+            $.ajax({
+                url: baseURL+"Data/SendOTP",
+                type: "GET",
+                data: { mobileNumber: $("#mobileNumber").val(), lang: 'en' },
+                datatype: "json",
+                contentType: "application/json",
+                success: function (res) {
+
+                    if (res.succeded) {
+                        // Set the date we're counting down to
+                        var countDownDate = new Date().getTime() + 30 * 1000;
+
+                        // Update the count down every 1 second
+                        var countSendCode = setInterval(function () {
+
+                            // Get today's date and time
+                            var now = new Date().getTime();
+
+                            // Find the distance between now and the count down date
+                            var distance = countDownDate - now;
+
+                            // Time calculations for hours, minutes and seconds
+
+                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                            // Display the result in the element with id="demo"
+                            document.getElementById("countDowun").innerHTML = "code expires in " + minutes + ":" + seconds + " minutes";
+
+                            // If the count down is finished, write some text
+                            if (distance < 0) {
+                                clearInterval(countSendCode);
+                                document.getElementById("countDowun").innerHTML = "EXPIRED";
+                                $("#resentCode").show(300);
+                            }
+                        }, 1000);
+                        
+                    }
+                    else {
+                        //console.log(res);
+                        failureToaster(res.message);
+                    }
+                },
+                error: function (err) {
+                    console.log("error: ", err)
+                }
+            });
+        }
+
+
+
+    });
+
+    function checkIfValidNationalId(nationalId){
+        $.ajax({
+            url: baseURL + "customer/isValidNationalId?nationalId=" + $("#customerNationalId").val(),
+            type: "GET",
+            datatype: "json",
+            contentType: "application/json",
+            success: function (res) {
+
+                if (res.succeded) {
+                    checkIfBlockedNationalId(nationalId)
+
+                } else {
+                    $("#invalidIdMsg").show(300)
+                    $("#validIdMsg").hide(300)
+                    $("#checkElegabilityBtn").prop("disabled", true)
+
+                }
+
+            },
+            error: function (err) {
+                console.log("error: ", err)
+            }
+        });
+    }
+    function checkIfBlockedNationalId(nationalId) {
+
+        $.ajax({
+            url: baseURL + `Customer/CheckIfBlockedNationalId?NationalId=${nationalId}`,
+            type: "GET",
+            datatype: "json",
+            async: false,
+            contentType: "application/json",
+            success: function (res) {
+
+                if (res.succeded) {
+
+                    $("#checkElegabilityBtn").prop("disabled", true)
+                    $("#validIdMsg").show(300)
+                    $("#invalidIdMsg").hide(300)
+                }
+                else {
+                    $("#checkElegabilityBtn").removeAttr('disabled')
+                    $("#validIdMsg").show(300)
+                    $("#invalidIdMsg").hide(300)
+                    // failureToaster(res.message);
+                }
+            },
+            error: function (err) {
+                console.log("error: ", err)
+            }
+        });
+    }
+
+    function checkIfBlockedCustomer(name) {
+
+        $.ajax({
+            url: baseURL + `Customer/CheckIfBlockedCustomer?CustomerName=${name}`,
+            type: "GET",
+            datatype: "json",
+            async: false,
+            contentType: "application/json",
+            success: function (res) {
+
+                if (res.succeded) {
+                    $("#checkElegabilityBtn").prop("disabled", true)
+                }
+                else {
+                    $("#checkElegabilityBtn").removeAttr('disabled')
+                    // failureToaster(res.message);
+                }
+            },
+            error: function (err) {
+                console.log("error: ", err)
+            }
+        });
+    }
+</script>
+

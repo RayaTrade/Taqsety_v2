@@ -1,0 +1,201 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Raya.Taqsety.WepApplication
+build_property.RootNamespace = Raya.Taqsety.WepApplication
+build_property.ProjectDir = C:\Users\mark_soliman\Documents\GitHub\Taqsety_v1\Raya.Taqsety.WepApplication\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\mark_soliman\Documents\GitHub\Taqsety_v1\Raya.Taqsety.WepApplication
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/CreaditTeamPortal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXENyZWFkaXRUZWFtUG9ydGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/CreditTeamPartials/_AdressDetailsModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXENyZWRpdFRlYW1QYXJ0aWFsc1xfQWRyZXNzRGV0YWlsc01vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/CreditTeamPartials/_Attachements.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXENyZWRpdFRlYW1QYXJ0aWFsc1xfQXR0YWNoZW1lbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/CreditTeamPartials/_CardDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXENyZWRpdFRlYW1QYXJ0aWFsc1xfQ2FyZERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/CreditTeamPartials/_CustomerInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXENyZWRpdFRlYW1QYXJ0aWFsc1xfQ3VzdG9tZXJJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/CreditTeamPartials/_customerMonthlyIncome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXENyZWRpdFRlYW1QYXJ0aWFsc1xfY3VzdG9tZXJNb250aGx5SW5jb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/CreditTeamPartials/_guarntorInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXENyZWRpdFRlYW1QYXJ0aWFsc1xfZ3Vhcm50b3JJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/CreditTeamPartials/_JobDetailsModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXENyZWRpdFRlYW1QYXJ0aWFsc1xfSm9iRGV0YWlsc01vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_Adress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9BZHJlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_Documents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9Eb2N1bWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_EligibilityCheck.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9FbGlnaWJpbGl0eUNoZWNrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_EliligabilityCheckResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9FbGlsaWdhYmlsaXR5Q2hlY2tSZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_grantorTimeline.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9ncmFudG9yVGltZWxpbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_Guarantor1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9HdWFyYW50b3IxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_Guarantor2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9HdWFyYW50b3IyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_Guarantor3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9HdWFyYW50b3IzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_JopSector.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9Kb3BTZWN0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_MaritalStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9NYXJpdGFsU3RhdHVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_MonthlyIncome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9Nb250aGx5SW5jb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_SmsCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9TbXNDb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_SportClub.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF9TcG9ydENsdWIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_timeline.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF90aW1lbGluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Partials/_visa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFBhcnRpYWxzXF92aXNhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/Summary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXFN1bW1hcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_customerAddress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfY3VzdG9tZXJBZGRyZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_customerClubs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfY3VzdG9tZXJDbHVicy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_customerJobDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfY3VzdG9tZXJKb2JEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_customerMonthlyIncome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfY3VzdG9tZXJNb250aGx5SW5jb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_CustomerName.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfQ3VzdG9tZXJOYW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_customerProvideOnDelivery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfY3VzdG9tZXJQcm92aWRlT25EZWxpdmVyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_guarntorAddress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfZ3Vhcm50b3JBZGRyZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_guarntorPersonalInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfZ3Vhcm50b3JQZXJzb25hbEluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_guarntorRelation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfZ3Vhcm50b3JSZWxhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/partials/_maritialStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xwYXJ0aWFsc1xfbWFyaXRpYWxTdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/InstallmentData/updateDataViews/UpdateForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdGFsbG1lbnREYXRhXHVwZGF0ZURhdGFWaWV3c1xVcGRhdGVGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/Shared/_loader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9sb2FkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/Shared/_SelectLanguage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWxlY3RMYW5ndWFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mark_soliman/Documents/GitHub/Taqsety_v1/Raya.Taqsety.WepApplication/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-vhvt7eagw9

@@ -1,0 +1,71 @@
+﻿<div>
+    <span class="material-symbols-outlined"
+          onclick="redirectToSummary()">
+        arrow_back
+    </span>
+</div>
+
+
+<div class="row mt-3 align-items-center justify-content-center">
+    <div class="col-md-6">
+        <div class="row py-2 justify-content-center">
+            <div class="col-md-10">
+                <p class="m-0  text-center">
+                    <span class="fs-3">💸</span>
+                    <br />
+                    <span class="fw-bolder">
+                        Your monthly income
+                    </span>
+                    <br />
+                    (your salary plus any other monthly funds)
+                </p>
+            </div>
+        </div>
+        <form id="monthlyIncomeForm">
+
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-6">
+                    <div class="form__group m-0 ">
+                        <input type="text" name="salary" required id="salary" class="form__field" placeholder="Your Email">
+                        <label for="salary" class="form__label inputPlaceHolder">Monthly income</label>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="row my-5 justify-content-center">
+    <button class="btn w-25 btn-primary" onclick="updateSalary()"> Update </button>
+</div>
+<script>
+    $(function () {
+        setTimeout(function () {
+            if (installmentCard) {
+                $("#salary").val(installmentCard.salary)
+            }
+        }, 400)
+    })
+
+   async function updateSalary() {
+        jobDetailsToUpdate = {
+            "id": installmentCard.customerJobDetailsId,
+            "jobAddress": installmentCard.jobAddress,
+            "jobTitle": installmentCard.customerJobTitle,
+            "salary": $("#salary").val(),
+            "isPrivateSector": installmentCard.isPrivateSector,
+            "startingDate": installmentCard.jobStartingDate
+        }
+        var res = await fetchPut("JobDetails/UpdateJobDetails", jobDetailsToUpdate)
+        if (res.succeded) {
+            var mobileNumber = localStorage.getItem("mobileNumber") //updating session data 
+            if (!!mobileNumber) {
+                var installmentCardResult = await fetchGet("InstallmentCard/GetInstallmentCardByMobileNumber?mobileNumber=" + mobileNumber + "&lang=en")
+                if (installmentCardResult.succeded) {
+                    sessionStorage.setItem("installmentCard", JSON.stringify(res.content))
+                    window.location.replace(fronApplicationPath + "/installmentData/Summary")
+                }
+            }
+        }
+    }
+</script>

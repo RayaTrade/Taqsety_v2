@@ -1,0 +1,177 @@
+﻿
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+<div class="row mt-3 align-items-center">
+    <div class=" d-none d-md-flex col-12 col-md-6" >
+        <div>
+
+            <img src="~/Images/undraw_security_on_re_e491.svg" class="img-fluid" />
+        </div>
+        <div class="h-breakLine"></div>
+    </div>
+    <div class="col-md-6">
+
+        <div class="row py-2 justify-content-center">
+            <div class="col-md-12">
+                <p class="m-0 fw-bolder text-center">
+                    <span class="fs-3">🛡</span>
+                    <br />
+                    <span class="fw-bolder">
+                        Guarantor info (2/3)
+
+                    </span>
+                </p>
+                <p class="text-center">
+                    Your guarantor's personal information
+                </p>
+
+            </div>
+        </div>
+
+        <form id="guarantor2Form">
+
+
+
+            <div class="row pt-2 justify-content-center">
+                <div class="col-md-6">
+
+                    <div class="form__group m-0 ">
+                        <input type="text" name="grantorNationalId" required pattern="^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$" id="grantorNationalId" class="form__field" placeholder="Guarantor's national id">
+                        <label for="grantorNationalId" class="form__label inputPlaceHolder">Guarantor's national id</label>
+                        <span id="sameNationalIdAsCustomerMsg" class="text-danger" style="display:none;">@localizer["customer and Guranter NationalIds could not be the same"]</span>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+
+                    <div class="form__group m-0 ">
+                        <input type="text" name="grantorMobileNumber" id="grantorMobileNumber" required pattern="^01[0125][0-9]{8}$" value="" class="form__field" placeholder="Guarantor's mobile number">
+                        <label for="grantorMobileNumber" class="form__label inputPlaceHolder">Guarantor's mobile number</label>
+                        <span class="text-danger" id="sameMobileNumberAsCustomerMsg" style="display:none;">@localizer["mobileNumber Can Not Be the same as customer"]</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2 justify-content-center">
+                <div class="col-md-12">
+
+                    <div class="form__group m-0 ">
+                        <input type="text" id="grantorName" name="grantorName" required class="form__field" placeholder="Guarantor's full name">
+                        <label for="grantorName" class="form__label inputPlaceHolder">Guarantor's full name</label>
+                    </div>
+                    <div class="d-flex mt-2 justify-content-evenly">
+                        <div class="nameBar nameBarGuarantor"></div>
+                        <div class="nameBar nameBarGuarantor"></div>
+                        <div class="nameBar nameBarGuarantor"></div>
+                        <div class="nameBar nameBarGuarantor"></div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary w-100" @* disabled="disabled"*@ id="guarantorPersonalInfoBtn"> Continue </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+
+    $("#grantorName").keydown(function (e) {
+        let fullName = $(this).val().toString().split(' ');
+
+        let bars = $(".nameBarGuarantor");
+
+        if ($("#grantorName").val() == "" && fullName.length == 1) {
+
+            $(bars[0]).css("background-color", "#d2d2d2");
+        } if (fullName.length == 1) {
+            $(bars[0]).css("background-color", "#f2b611")
+            $(bars[1]).css("background-color", "#d2d2d2");
+            $(bars[2]).css("background-color", "#d2d2d2");
+            $(bars[3]).css("background-color", "#d2d2d2");
+
+        }
+        if (fullName.length == 2) {
+            $(bars[0]).css("background-color", "#f2b611")
+            $(bars[1]).css("background-color", "#f2b611")
+            $(bars[2]).css("background-color", "#d2d2d2");
+            $(bars[3]).css("background-color", "#d2d2d2");
+
+        } if (fullName.length == 3) {
+            $(bars[0]).css("background-color", "#f2b611");
+            $(bars[1]).css("background-color", "#f2b611");
+            $(bars[2]).css("background-color", "#f2b611");
+            $(bars[3]).css("background-color", "#d2d2d2");
+        }
+        if (fullName.length == 4) {
+
+            $(bars[0]).css("background-color", "green");
+            $(bars[1]).css("background-color", "green");
+            $(bars[2]).css("background-color", "green");
+            $(bars[3]).css("background-color", "green");
+        }
+        if (fullName.length > 4) {
+            if (e.keyCode !== 8) {
+                e.preventDefault();
+            }
+        }
+    })
+    $(function () {
+
+        $("#grantorMobileNumber ,#grantorNationalId ").keypress(function (e) {
+            if (!validateNumber(e)) {
+                e.preventDefault();
+            }
+        })
+
+
+        $("#grantorNationalId").focusout(function () {
+            if ($(this).val() == $("#customerNationalId").val()) {
+                $("#sameNationalIdAsCustomerMsg").show()
+                $("#guarantorPersonalInfoBtn").attr("disabled", true)
+            } else {
+                $("#sameNationalIdAsCustomerMsg").hide()
+                $("#guarantorPersonalInfoBtn").attr("disabled", false)
+            }
+        })
+
+        $("#grantorMobileNumber").focusout(function () {
+            if ($(this).val() == $("#mobileNumber").val()) {
+                $("#sameMobileNumberAsCustomerMsg").show()
+                $("#guarantorPersonalInfoBtn").attr("disabled", true)
+            } else {
+                $("#sameMobileNumberAsCustomerMsg").hide()
+                $("#guarantorPersonalInfoBtn").attr("disabled", false)
+            }
+        })
+
+
+        $("#guarantor2Form").validate({
+            messages: {
+                grantorNationalId: {
+                    pattern: "Please enter valid National ID"
+                },
+                grantorMobileNumber: {
+                    pattern: "Please enter valid Mobile Number"
+
+                }
+            },
+            errorClass: "validationError"
+        });
+
+
+        $("#guarantorPersonalInfoBtn").click(function () {
+            //$("input[type=radio name=JobTypeId]")
+
+            if ($("#guarantor2Form").valid()) {
+
+                $("#_guarantor2").slideUp(500, function () {
+                    $("#_guarantor3").slideDown(500);
+                });
+            }
+
+        });
+
+    });
+    </script>

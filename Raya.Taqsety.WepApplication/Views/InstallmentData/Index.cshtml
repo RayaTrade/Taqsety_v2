@@ -1,0 +1,174 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+@{
+    Layout = null;
+
+}
+@{
+    var isRTL = CultureInfo.CurrentCulture.Name.StartsWith("ar");
+    var lang = localizer;
+}
+<!DOCTYPE html>
+<html lang="en" dir="@(isRTL? "RTL" : "LTR")">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="~/css/main.css" rel="stylesheet" />
+    @if (isRTL)
+    {
+        <link href="~/css/mainrtl.css" rel="stylesheet" />
+
+    }
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">*@
+    <link href="~/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="~/js/jquery-3.6.1.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.4/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
+    <partial name="_loader" />
+    <nav class="navbar navbar-expand-lg bg-taksety ">
+        <a class="navbar-brand" href="#"><img src="~/Images/Taksety-Logo.png" style="width:80px;" /></a>
+        @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>*@
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        </div>
+    </nav>
+   
+    <div class="container py-5 taksety-container" style="height:110vh;">
+       @* <div class="logo text-center">
+            <img src="~/images/logo.png" class="img-fluid" />
+        </div>
+        <div class="breakLine my-3"></div>*@
+
+        <section id="eligibilityCheck">
+            <partial name="partials/_eligibilitycheck" />
+
+        </section>
+        <section id="smsCode">
+            <partial name="partials/_SmsCode" />
+        </section>
+        <section id="checkEligibilityResult">
+            <partial name="partials/_EliligabilityCheckResult" />
+
+        </section>
+        <section id="_maritalStatus">
+            <partial name="partials/_MaritalStatus" />
+
+        </section>
+
+        <section id="_Adress">
+            <partial name="partials/_Adress" />
+
+        </section>
+        <section id="_jopSector">
+            <partial name="partials/_JopSector" />
+
+        </section>
+        <section id="_monthlyIncome">
+            <partial name="partials/_MonthlyIncome" />
+
+        </section>
+        <section id="_sportClub">
+            <partial name="partials/_SportClub" />
+        </section>
+
+        <section id="_document">
+            <partial name="partials/_Documents" />
+        </section>
+        <section id="_guarantor1">
+            <partial name="partials/_Guarantor1" />
+        </section>
+        <section id="_guarantor2">
+            <partial name="partials/_Guarantor2" />
+        </section>
+        <section id="_guarantor3">
+            <partial name="partials/_Guarantor3" />
+        </section>
+
+    </div>
+    <div class="breakLine my-3"></div>
+
+    <footer class="taqsety-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>
+                        About Raya
+                    </h3>
+                    <ul>
+                        <li><a href="#">Who we are</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                        <li><a href="#">Raya Installments</a></li>
+                        <li><a href="#">Raya Plus</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3>
+                        Customer Support
+
+                    </h3>
+                    <ul>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact us</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3>More</h3>
+                    <ul>
+                        <li><a href="#">Installment offers</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3">
+
+                    <h3 class="text-center">Raya</h3>
+                    <div>
+                        <img src="~/Images/Taksety-Logo.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="~/js/main.js"></script>
+
+    <script>$("#governerate,#city , #UniversityId , #guarantorCity , #guarantorgovernerateId , #sportClubId").select2();
+        $(".jobTitle").click(function () {
+            jopTitle = $(this).attr("data-jobType");
+        });
+        $(function () {
+
+
+            getAllGovernerate("en", "#guarantorgovernerateId");
+            getAllClubs("en");
+        })
+
+
+        $("#guarantorgovernerateId").change(function () {
+
+            getAllCitiesByGovernerateId($(this).val(), "en", "#guarantorCity");
+        })
+        $(" #smsCode, #checkEligibilityResult , #_maritalStatus , #_Adress , #_jopSector , #_monthlyIncome , #_sportClub , #_document , #_guarantor1 , #_guarantor2 , #_guarantor3").hide();</script>
+
+</body>
+</html>
+
+

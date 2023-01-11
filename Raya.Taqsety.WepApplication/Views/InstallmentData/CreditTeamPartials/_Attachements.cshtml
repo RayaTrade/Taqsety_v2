@@ -1,0 +1,270 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="attachment" tabindex="-1" role="dialog" aria-labelledby="attachment" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@localizer["Attachments"]</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+
+                        <!--front-->
+                        <div>
+                            <label>@localizer["front ID"]</label>
+                            <div class="avatar-upload">
+                                <div class="avatar-edit">
+                                    <input type='file' id="frontIdUpload" accept=".png, .jpg, .jpeg" />
+                                    <label for="frontIdUpload"></label>
+                                </div>
+                                <div style="max-width:20vw;">
+                                    <img src="https://www.contentviewspro.com/wp-content/uploads/2017/07/default_image.png" id="frontIdPreview" class="w-100" style="" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <!-- back -->
+                        <div class="">
+                            <label>@localizer["Back ID"]</label>
+                            <div class="avatar-upload mt-1  ">
+                                <div class="avatar-edit">
+                                    <input type='file' id="backIdUpload" accept=".png, .jpg, .jpeg" />
+                                    <label for="backIdUpload"></label>
+                                </div>
+                                <div style="max-width:20vw;">
+                                    <img src="https://www.contentviewspro.com/wp-content/uploads/2017/07/default_image.png" id="backIdPreview" class="w-100" style="" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                    <!-- club -->
+                    <div class="">
+                        <label>@localizer["Club ID"]</label>
+                        <div class="avatar-upload mt-1  ">
+                            <div class="avatar-edit">
+                                <input type='file' id="clubIdUpload" accept=".png, .jpg, .jpeg" />
+                                <label for="clubIdUpload"></label>
+                            </div>
+                            <div style="max-width:20vw;">
+                                <img src="https://www.contentviewspro.com/wp-content/uploads/2017/07/default_image.png" id="clubIdPreview" class="w-100" style="" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    <div class="col-md-6">
+                    <!-- Medical ID -->
+                    <div class="">
+                        <label>@localizer["Medical ID"]</label>
+                        <div class="avatar-upload mt-1  ">
+                            <div class="avatar-edit">
+                                <input type='file' id="medicalIdUpload" accept=".png, .jpg, .jpeg" />
+                                <label for="medicalIdUpload"></label>
+                            </div>
+                            <div style="max-width:20vw;">
+                                <img src="https://www.contentviewspro.com/wp-content/uploads/2017/07/default_image.png" id="medicalIdPreview" class="w-100" style="" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+                <div class="row mt-2 justify-content-center">
+                    <div class="col-md-6">
+                <!-- Car ID --> 
+                <div class="mt-2">
+                    <label>@localizer["Car ID"]</label>
+                    <div class="avatar-upload mt-1  ">
+                        <div class="avatar-edit">
+                            <input type='file' id="carIdUpload" accept=".png, .jpg, .jpeg" />
+                            <label for="carIdUpload"></label>
+                        </div>
+                        <div style="max-width:20vw;">
+                            <img src="https://www.contentviewspro.com/wp-content/uploads/2017/07/default_image.png" id="carIdPreview" class="w-100" style="" />
+
+                        </div>
+                    </div>
+                </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="attachemntEdit">Edit</button>
+                <button type="button" class="btn btn-primary w-100" disabled id="attachmentBtn"> Save </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".avatar-upload .avatar-edit input + label").hide();
+    $("#attachemntEdit").click(function () {
+        $(".avatar-upload .avatar-edit input + label").show(300);
+        $("#attachmentBtn").prop("disabled", false)
+
+
+    });
+    $("#frontIdUpload").change(async function () {
+
+        readURL(this, "#frontIdPreview"); //preview
+       
+        var  uploadedAttachments = JSON.parse(sessionStorage.getItem("uploadedAttachments"));
+        uploadedAttachments.forEach(async function (currentValue, index) {
+            if (currentValue.attachmentTypeId == 1) { //update the attachment
+                attachments.push({
+                    "id": currentValue.id,
+                    "attachmentTypeId": 1,
+                    "name": getFileName("#frontIdUpload"),
+                    "imageBase64": await getBase64("#frontIdUpload").then(res => res.toString().split(",")[1])
+                });
+            } 
+        })
+        attachments.push({ // upload new attachment  
+            "id": 0,
+            "attachmentTypeId": 1,
+            "name": getFileName("#frontIdUpload"),
+            "imageBase64": await getBase64("#frontIdUpload").then(res => res.toString().split(",")[1])
+        });
+
+    });
+    $("#backIdUpload").change(async function () {
+
+        readURL(this, "#backIdPreview");
+        var  uploadedAttachments = JSON.parse(sessionStorage.getItem("uploadedAttachments"));
+        uploadedAttachments.forEach(async function (currentValue, index) {
+            if (currentValue.attachmentTypeId == 2) { //update the attachment
+                attachments.push({
+                    "id": currentValue.id,
+                    "attachmentTypeId": 2,
+                    "name": getFileName("#backIdUpload"),
+                    "imageBase64": await getBase64("#backIdUpload").then(res => res.toString().split(",")[1])
+                });
+            } 
+        })
+        attachments.push({ // upload new attachment  
+            "id": 0,
+            "attachmentTypeId": 2,
+            "name": getFileName("#backIdUpload"),
+            "imageBase64": await getBase64("#backIdUpload").then(res => res.toString().split(",")[1])
+        });
+    });
+    $("#clubIdUpload").change(async function () {
+
+        readURL(this, "#clubIdPreview");
+
+        var  uploadedAttachments = JSON.parse(sessionStorage.getItem("uploadedAttachments"));
+        uploadedAttachments.forEach(async function (currentValue, index) {
+            if (currentValue.attachmentTypeId == 5) { //update the attachment
+                attachments.push({
+                    "id": currentValue.id,
+                    "attachmentTypeId": 5,
+                    "name": getFileName("#clubIdUpload"),
+                    "imageBase64": await getBase64("#clubIdUpload").then(res => res.toString().split(",")[1])
+                });
+            } 
+        })
+        attachments.push({ // upload new attachment 
+            "id": 0,
+            "attachmentTypeId": 5,
+            "name": getFileName("#clubIdUpload"),
+            "imageBase64": await getBase64("#clubIdUpload").then(res => res.toString().split(",")[1])
+        });
+    });
+    $("#medicalIdUpload").change(async function () {
+
+        readURL(this, "#medicalIdPreview");
+
+        var uploadedAttachments = JSON.parse(sessionStorage.getItem("uploadedAttachments"));
+        uploadedAttachments.forEach(async function (currentValue, index) {
+            if (currentValue.attachmentTypeId == 3) { //update the attachment
+                attachments.push({
+                    "id": currentValue.id,
+                    "attachmentTypeId": 3,
+                    "name": getFileName("#medicalIdUpload"),
+                    "imageBase64": await getBase64("#medicalIdUpload").then(res => res.toString().split(",")[1])
+                });
+            }
+        })
+        attachments.push({ // upload new attachment 
+            "id": 0,
+            "attachmentTypeId": 3,
+            "name": getFileName("#medicalIdUpload"),
+            "imageBase64": await getBase64("#medicalIdUpload").then(res => res.toString().split(",")[1])
+        });
+    });
+    $("#carIdUpload").change(async function () {
+
+        readURL(this, "#carIdPreview");
+        var uploadedAttachments = JSON.parse(sessionStorage.getItem("uploadedAttachments"));
+        uploadedAttachments.forEach(async function (currentValue, index) {
+            if (currentValue.attachmentTypeId == 4) { //update the attachment
+                attachments.push({
+                    "id": currentValue.id,
+                    "attachmentTypeId": 4,
+                    "name": getFileName("#carIdUpload"),
+                    "imageBase64": await getBase64("#carIdUpload").then(res => res.toString().split(",")[1])
+                });
+            }
+        })
+        attachments.push({ // upload new attachment
+            "id": 0,
+            "attachmentTypeId": 4,
+            "name": getFileName("#carIdUpload"),
+            "imageBase64": await getBase64("#carIdUpload").then(res => res.toString().split(",")[1])
+        });
+    });
+
+
+    $(function () {
+        $("#attachmentBtn").click(function () {
+
+            AttachmentsToUpdate = {
+                "CustomerId": currentCustomerId,
+                "attachments": attachments
+            }
+
+            UploadAttachment(AttachmentsToUpdate)
+        });
+    })
+
+    function UploadAttachment(objToUpdate) {
+        $.ajax({
+            url: baseURL + `Customer/UpdateCustomerAttachments`,
+            type: "PUT",
+            data: JSON.stringify(objToUpdate),
+            datatype: "json",
+            async: false,
+            contentType: "application/json",
+            success: function (res) {
+
+                if (res.succeded) {
+                    successToaster(res.message)
+                }
+                else {
+                    failureToaster(res.message);
+                }
+            },
+            error: function (err) {
+                console.log("error: ", err)
+            }
+        });
+    }
+</script>

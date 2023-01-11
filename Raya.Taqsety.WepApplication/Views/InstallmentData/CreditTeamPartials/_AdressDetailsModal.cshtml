@@ -1,0 +1,200 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+<form id="addressForm">
+
+    <!-- Modal -->
+    <div class="modal fade" id="adressDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">@localizer["Adress details"]</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="addressId" />
+                    <button type="button" class="btn btn-secondary" id="adressEdit">Edit</button>
+
+                    <div class="row py-2  ">
+                        <div class="col-md-6">
+                            <label>Governerate</label>
+                            <select name="GovernerateId" required id="customerGovernerate" disabled class=" w-100">
+                            </select>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label>City</label>
+
+                            <select name="CityId" required id="customerCity" disabled class="form-control w-100">
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="row py-2  ">
+                        <div class="col-md-6">
+                            <div class="form__group m-0 ">
+                                <input type="text" name="Details" disabled id="customerAddressDetails" required class="form__field" >
+                                <label for="Details" class="form__label inputPlaceHolder">Address Details</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form__group m-0 ">
+                                <input type="text" name="customerAddressNearestLandmark" disabled required id="customerAddressNearestLandmark" class="form__field">
+                                <label for="customerAddressNearestLandmark" class="form__label inputPlaceHolder">Nearest land mark</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row py-2">
+                        <div class="col-md-6">
+                            <div class="form__group m-0 ">
+                                <input type="text" name="YearsOfResidence" disabled required id="YearsOfResidence" class="form__field" >
+                                <label for="YearsOfResidence" class="form__label inputPlaceHolder">
+                                    years of Residence
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                        <div class="  py-2">
+                            <p class="fw-bolder">property Type:</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="_selection propertyType_Selection p-3 my-2">
+
+                                <label class="selection_radio">
+                                    <input type="radio" disabled name="customerBuildingType" value="1" />
+                                    I'm the owner
+                                </label>
+
+                            </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="_selection propertyType_Selection p-3 my-2">
+
+                                <label class="selection_radio">
+                                    <input type="radio" disabled name="customerBuildingType" value="2" />
+                                    New Rent
+                                </label>
+
+                            </div>
+
+                                </div>
+                                <div class="col-md-4">
+
+                                    <div class="_selection propertyType_Selection p-3 my-2">
+
+                                <label class="selection_radio">
+                                    <input type="radio" disabled name="customerBuildingType" value="3" />
+                                    Old Rent
+                                </label>
+
+                            </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                   
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary w-100" disabled id="addressBtn"> Save </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        $("#customerGovernerate,#customerCity").select2();
+        getAllGovernerate("en", "#customerGovernerate");
+        $("#customerGovernerate").change(function () {
+
+            getAllCitiesByGovernerateId($(this).val(), "en", "#customerCity");
+        })
+
+        $("#adressEdit").click(function () {
+
+            $("#customerGovernerate , #customerCity , #customeraddressDetails , #customerAddressNearestLandmark , input[name=customerBuildingType] ,#addressBtn ,#YearsOfResidence").prop("disabled", false)
+        })
+        $(".propertyType_Selection").click(function () {
+
+            $(this).css("border", "1px solid #0840b8");
+            $(this).children().children().prop('checked', true);
+            let radioSibilings = $(this).siblings();
+            for (let index = 0; index < radioSibilings.length; index++) {
+                $(radioSibilings[index]).css("border", "1px solid #e3e5e8");
+            }
+        });
+    })
+    $("#addressForm").validate({
+        errorClass: "validationError"
+    });
+    $("#addressBtn").click(function () {
+        if ($("#addressForm").valid()) {
+            let addressDetailsOBJ = {
+                "id": $("#addressId").val(),
+                "buildingType": $('input[name=customerBuildingType]:checked').val(),
+                "nearestSign": $("#customerAddressNearestLandmark").val(),
+                "details": $("#customerAddressDetails").val(),
+                "cityId": $("#customerCity").val(),
+                "governrateId": $("#customerGovernerate").val(),
+                "yearsOfResidance": $("#YearsOfResidence").val()
+            }
+            UpdateAddressDetails(addressDetailsOBJ);
+        }
+
+    });
+
+    function getCustomerAdressDetails(customerId) {
+
+        $.ajax({
+            url: baseURL + `AddressDetails/GetAddressDetailsById?id=${customerId}`,
+            type: "GET",
+            datatype: "json",
+            async: false,
+            contentType: "application/json",
+            success: function (res) {
+
+                if (res.succeded) {
+
+                    fillAddress(res.content)
+
+                }
+                else {
+                    failureToaster(res.message);
+                }
+            },
+            error: function (err) {
+                console.log("error: ", err)
+            }
+        });
+
+
+
+    }
+    function fillAddress(customerAddressDetails) {
+        getAllGovernerate("en", "#customerGovernerate", customerAddressDetails.governrateId);
+        //getAllCitiesByGovernerateId($(this).val(), "en", "#city");
+        $("#addressId").val(customerAddressDetails.id);
+       // $(`#governerate option[value='${customerAddressDetails.governrateId}']`).attr("selected", customerAddressDetails.governrateId);
+        getAllCitiesByGovernerateId(customerAddressDetails.governrateId);
+        $("#customerCity").val(customerAddressDetails.cityId);
+        $("#customerAddressNearestLandmark").val(customerAddressDetails.nearestSign);
+        $("#YearsOfResidence").val(customerAddressDetails.yearsOfResidance)
+        $("#customerAddressDetails").val(customerAddressDetails.details);
+        $('input[name=customerBuildingType][value="' + customerAddressDetails.buildingType + '"]').click();
+        $('input[name=customerBuildingType][value="' + customerAddressDetails.buildingType + '"]').prop("disabled", true);
+
+    }
+
+    
+</script>

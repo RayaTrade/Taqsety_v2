@@ -1,0 +1,200 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+@*<partial name="_loader" />*@
+<div class="container">
+
+    <div class="row">
+
+        <h3>Taqsety</h3>
+    </div>
+    <section class="row" style="margin-bottom:320px;">
+        <partial name="partials/_visa" />
+    </section>
+    <div class="row">
+        <h4>Credit limit is ready to unlock</h4>
+        <p>You can now review your answers and once everything is okay, then submit your application to get your Taqsety limit.</p>
+
+    </div>
+    @*<h2 class="content-block">Home: @localizer["test"]</h2>*@
+    <div class="row border  border-1 rounded">
+        <partial name="partials/_timeline" />
+    </div>
+    <div id="guarantorDataContainer">
+        <div class="row my-2">
+            <h4>Guarntor Info</h4>
+        </div>
+        <div class="border border border-1 rounded">
+            <partial name="partials/_grantorTimeline" />
+        </div>
+    </div>
+    <form id="submitAppFrom">
+        <div class="mt-3 d-flex pt-2">
+            <div class="d-flex flex-column">
+                <input type="checkbox" class="mx-2 d-flex flex-column" required id="discliamer" name="discliamer" />
+            </div>
+            <label for="discliamer" class="text-start" style="text-align:start;">@localizer["disclaimer"]</label>
+        </div>
+        <div class="row py-3 justify-content-center align-items-center">
+            <button type="button" class="btn btn-primary w-25" id="SubmitApplicationBtn">Submit Application</button>
+        </div>
+    </form>
+
+</div>
+<script>
+    //--- form validation
+    $("#submitAppFrom").validate({
+        errorClass: "validationError"
+    });
+
+
+
+
+
+
+
+    $("#SubmitApplicationBtn").click(function () {
+        if (sessionStorage.getItem("installmentCard")) {
+             installmentCard = JSON.parse(sessionStorage.getItem("installmentCard"))
+        }
+        if ($("#submitAppFrom").valid()) {
+
+            $.ajax({
+                url: baseURL + "InstallmentCard/ChangeInstallmentCardStatus?installmentCardId=" + installmentCard.id + "&newStatusId=" + 1,
+                type: "PUT",
+                datatype: "json",
+                contentType: "application/json",
+                async: false,
+                success: function (res) {
+                    if (res.succeded) {
+                        console.log(res.content)
+                        successToaster('@localizer["ApplicationUnderRevision"]')
+                        isSubmitedApplication()
+                    }
+                    else {
+
+                    }
+                },
+                error: function (err) {
+                    console.log("error: ", err)
+                }
+            });
+        }
+
+    });
+    //--- form validation
+    $(function(){
+        //console.log("inside ready")
+        if (sessionStorage.getItem("installmentCard")) {
+             installmentCard = JSON.parse(sessionStorage.getItem("installmentCard"))
+        }
+
+        var mobileNumber = localStorage.getItem("mobileNumber")
+        if (!!mobileNumber){
+            $.ajax({
+                url: baseURL + "InstallmentCard/GetInstallmentCardByMobileNumber?mobileNumber=" + mobileNumber + "&lang=en",
+                type: "GET",
+                datatype: "json",
+                contentType: "application/json",
+                async: false,
+                success: function (res) {
+                    if (res.succeded) {
+                        console.log(res.content)
+                        installmentCardId =res.content.id;
+                        setValuesToForm(res.content)
+                        installmentCard = res.content;
+                        sessionStorage.setItem("installmentCard", JSON.stringify(res.content))
+                    }
+                    else {
+
+                        $("#verifyErr").text(res.message)
+                    }
+                },
+                error: function (err) {
+                    console.log("error: ", err)
+                }
+            });
+
+        } else {
+            window.location.replace(fronApplicationPath + "/installmentData/index")//redirect to begining of the form
+        }
+
+         installmentCard = JSON.parse(sessionStorage.getItem("installmentCard"))
+
+
+        //diabling buttons if pending request
+
+        if (installmentCard != null && installmentCard.statusId != null && installmentCard.statusId.id == 1) {   //if pending request
+            isSubmitedApplication()
+        }
+
+
+
+
+    })
+
+    function setValuesToForm(obj) {
+        var newNumber = obj.customerNationalId.toString().padStart(16, "0")
+        $("#visaId").text(newNumber.split(/(\d{4})/).join(' ').trim())
+        $("#customerName").text(obj.customerName)
+        $("#creditLimit").text(obj.approvedCreditLimit.toLocaleString('en')+ " L.E")
+        $("#expiryDate").text(new Date(obj.validateToDate).toDateString())
+        $("#monthlyCreditLimit").text(obj.approvedMonthlyCreditLimit.toLocaleString('en') + " L.E")
+        $("#nationalId").text(obj.customerNationalId)
+        $("#name").text(obj.customerName)
+        $("#maritalStatus").text(obj.customerMartialStatus.name)
+        $("#customerAddress").text(obj.CustomerBuildingType)
+        $("#customerPrpertyType").text(obj.customerBuildingType)
+        $("#nearestLandMark").text( obj.customerAddressNearestLandmark)
+        $("#JobTitle").text(obj.customerJobTitle)
+        $("#CustomerAddressDetails").text(", " + obj.customerAddressDetails)
+        $("#CutomerCity").text(", " + obj.customerCityId.name)
+        $("#CutomerGovernrate").text(", " + obj.customerGovernrateId.name)
+        $("#customerPrpertyType").text(", " + obj.customerBuildingType.name)
+        $("#isPrivateSector").text(", " + obj.isPrivateSectorDisplayName)
+        $("#jobDetails").text(", " + obj.jobAddress)
+        $("#salary").text(obj.salary.toLocaleString('en') + " L.E")
+
+        if (obj.clubsIds.length >0){
+        obj.clubsIds.forEach((element) =>{
+        $("#ClubsNames").append(element.name +" ")
+        });
+
+        }
+        if (obj.attachmentsOnDelivery.length >0){
+
+        obj.attachmentsOnDelivery.forEach((element)=>{
+        $("#toProvideOnDelivery").append(element +", ")
+        })
+        }
+
+        //guarntor Data
+        if (!!obj.grantorNationalId){
+        $("#GuarantorRelation").text(obj.grantorRelationId.name)
+        $("#GuarantorNationalId").text("ID: "+ obj.grantorNationalId)
+        $("#GuarantorMobileNumber").text(obj.grantorMobileNumber)
+        $("#GuarantorName").text(obj.grantorName)
+        //$("#GuarantorNearestLand").text(obj.grantorAddressNearestLandmark)
+        $("#GuarantorAddressDetails").text( obj.grantorAddressDetails)
+        $("#GuarantorCity").text(", "+ obj.grantorCityId.name)
+        $("#GuarantorGouvernrate").text(", " +obj.grantorGovernrateId.name)
+        //guarntor Data
+        }else{
+            $("#guarantorDataContainer").hide()
+        }
+
+    }
+
+
+     function redirectAndFillData(divToShow){
+         window.location.replace(window.location.origin.concat(fronApplicationPath + '/installmentdata/updateForm#' + divToShow)  )
+     }
+
+    function isSubmitedApplication() {
+        $("[class='material-symbols-outlined']").hide()
+        $("#SubmitApplicationBtn").prop('disabled', true)
+    }
+
+
+
+</script>

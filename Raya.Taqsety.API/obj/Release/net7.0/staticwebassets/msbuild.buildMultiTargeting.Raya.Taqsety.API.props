@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Raya.Taqsety.API.props" />
+</Project>
